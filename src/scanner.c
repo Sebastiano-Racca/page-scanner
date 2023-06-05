@@ -24,7 +24,11 @@ size_t writeCallback(void *contents, size_t size, size_t nmemb, char **response)
 
 HTTPResponse getURLBody(const char *url) {
     // Inizializzo la struttura a null
-    HTTPResponse response = { NULL };
+    HTTPResponse response = { 
+        .body = NULL,
+        .error = NULL,
+        .httpCode = 0,
+    };
     
     // Inizializza la libcurl globalmente
     curl_global_init(CURL_GLOBAL_DEFAULT);
